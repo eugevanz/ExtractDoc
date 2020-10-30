@@ -39,7 +39,7 @@
         </v-row>
       </v-card>
       <v-row>
-        <v-col cols="6" sm="2" v-for="link in links" :key="link">
+        <v-col cols="12" sm="6" md="4" v-for="link in links" :key="link.filepath">
           <Page :data="link"/>
         </v-col>
       </v-row>
@@ -58,7 +58,7 @@ export default {
   },
   data() {
     return {
-      links: ['https://cdn.vuetifyjs.com/images/cards/house.jpg', 'https://cdn.vuetifyjs.com/images/cards/road.jpg', 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg']
+      links: [{filepath: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', tagName: "House"}, {filepath: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', tagName: "Road"}, {filepath: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', tagName: "Plane"}, {filepath: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg', tagName: "Sunshine"}]
     }
   }
 }
