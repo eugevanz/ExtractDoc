@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-navigation-drawer permanent expand-on-hover app>
+      <v-list dense>
+        <v-list-item link to="/">
+          <v-list-item-icon>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content style="margin-left: 10px;">
+            <v-list-item-title>My Files</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link to="/upload">
+          <v-list-item-icon>
+            <v-icon>mdi-cloud-upload</v-icon>
+          </v-list-item-icon>
+        
+          <v-list-item-content style="margin-left: 10px;">
+            <v-list-item-title>Uploads Documents</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    
+    <v-main><router-view/></v-main>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  font-family: "Lato";
 }
 </style>
