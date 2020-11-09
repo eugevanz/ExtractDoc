@@ -1,18 +1,23 @@
 <template>
-  <div>
-    <v-app-bar app flat>
-      <v-text-field label="Search" dense style="margin-top: 16px;"></v-text-field>
-      <v-spacer></v-spacer>
-      <v-btn text><v-icon left>mdi-filter-variant</v-icon> Sort</v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container>
-        <v-row>
-          <v-col cols="12" md="4" v-for="card in cards" :key="card.id"><Document :data="card"/></v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </div>
+  <v-container>
+    <v-row>
+        <v-col cols="11">
+          <v-text-field label="Search" dense></v-text-field>
+        </v-col>
+        <v-col v-if="searchTerm != ''" cols="1">
+          <v-btn icon><v-icon>mdi-close</v-icon></v-btn>
+        </v-col>
+    </v-row>
+    
+    <v-spacer></v-spacer>
+
+    <!--<v-btn text><v-icon left>mdi-filter-variant</v-icon> Sort</v-btn>-->
+
+    <v-row>
+      <v-col cols="12" md="4" v-for="card in cards" :key="card.id"><Document :data="card"/></v-col>
+    </v-row>
+  </v-container>
+
 </template>
 
 <script>
@@ -30,7 +35,8 @@ export default {
       {name: "Seldom", status: 'active', upload: '18/08/2020', user: 'Marques Brownley', id: 3}, 
       {name: "Field", status: 'inactive', upload: '18/08/2020', user: 'Jimmy Dore', id: 4}, 
       {name: "Dog", status: 'active', upload: '18/08/2020', user: 'Jaspreet Singh', id: 5}
-    ]
+    ],
+    searchTerm: ''
   })
 }
 </script>
